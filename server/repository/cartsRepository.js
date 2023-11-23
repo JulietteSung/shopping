@@ -1,5 +1,19 @@
 import { db } from '../db/database.js';
 
+/* updateQty : 장바구니 수량업데이트 */
+export async function updateQty({ id, cid, checkFlag }) {
+  let sql = ``;
+  if (checkFlag === 'plus') {
+    sql = 'update shoppy_cart set qty = qty +1 where cid =?'
+  } else {
+    sql = 'update shoppy_cart set qty = qty -1 where cid =?'
+  }
+
+
+  return db
+    .execute(sql, [id, cid, checkFlag])
+    .then((result) => 'ok');
+}
 
 
 /* removeCart : 장바구니의 선택 상품 삭제 */

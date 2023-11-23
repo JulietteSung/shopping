@@ -6,6 +6,7 @@ import signUpRouter from './router/signUpRouter.js'
 import loginRouter from './router/loginRouter.js'
 import newCartsrouter from './router/newCartsRouter.js'
 import Cartsrouter from './router/cartsRouter.js'
+import orderRouter from './router/orderRouter.js'
 
 const PORT = 8000;
 const server = express();
@@ -20,6 +21,7 @@ server.use('/signup', signUpRouter);
 server.use('/login', loginRouter);
 server.use('/carts/new', newCartsrouter);
 server.use('/carts', Cartsrouter);
+server.use('/order/new', orderRouter);
 
 
 

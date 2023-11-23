@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get('/:id', controller.getList);
 router.get('/:id/:cid', controller.removeCart);
+router.get('/:id/:cid/:checkFlag', controller.updateQty);
 
 
 export default router;

@@ -1,9 +1,18 @@
 import * as repository from '../repository/cartsRepository.js';
 
+
+/* 장바구니 수량 업데이트 */
+export async function updateQty(req, res) {
+  const { id, cid, checkFlag } = req.params;  // 데이터 하나 아니고 몽땅 다 받을래
+  console.log(`--------->${JSON.stringify({ id, cid, checkFlag })} `);  // 서버로 값이 넘어오는지 확인해보기
+  const result = await repository.updateQty({ id, cid, checkFlag });
+  res.json(result);
+}
+
 /* 장바구니 리스트 선택 상품 삭제 */
 export async function removeCart(req, res) {
   const cid = req.params.cid;
-  console.log(`cid--------->${cid}`);  // 서버로 값이 넘어오는지 확인해보기
+  console.log(`cid---------> ${cid} `);  // 서버로 값이 넘어오는지 확인해보기
   const result = await repository.removeCart(cid);
   res.json(result);
 }
